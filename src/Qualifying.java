@@ -2,7 +2,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.util.ArrayList;
+
+
+import java.util.*;
 
 
 public class Qualifying {
@@ -27,6 +29,7 @@ public class Qualifying {
 
     }
 
+
     // Fetches qualifying results from table
     public String fetchQualifying()
     {
@@ -35,22 +38,10 @@ public class Qualifying {
         //return doc.select("div[id=Results]").text();
         for (Element result : results)
         {
-            al.add(result.text());
-            System.out.println(al);
+
+            al.add(result.text() + "\n" + "\n");
 
         }
-        return "";
-    }
-
-
-
-
-
-    public static void main(String args [])
-    {
-        Qualifying w = new Qualifying("sxmadnesslites", "r3");
-
-        String start = w.fetchQualifying();
-        System.out.println(start);
+        return "" + al;
     }
 }
